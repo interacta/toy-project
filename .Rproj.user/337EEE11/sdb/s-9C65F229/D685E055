@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1483337818369.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D685E055",
+    "lastKnownWriteTime" : 4294967302,
+    "last_content_update" : 1483337818369,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "35E59C6E",
+        "caption" : "toys",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=toys&cache_key=35E59C6E",
+        "displayedObservations" : "25",
+        "environment" : "",
+        "object" : "toys",
+        "preview" : "0",
+        "totalObservations" : "25",
+        "variables" : "9"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

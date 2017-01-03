@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# load packages\nlibrary(dplyr)\nlibrary(tidyr)\n\n# import table\ntoys <- data.frame(read.csv(\"refine_original.csv\", header = TRUE, stringsAsFactors = FALSE))\n\n#rename Product code / number to code\ncolnames(toys)[2] <- \"code\"\n\nstr(toys) # check data\n\n#setup data table as local dataframe? Done on import?\n#toys <- tbl_df(refine_original)\n\n#get number of rows\nrowcount <- nrow(toys)\n\n# make everything lowercase\n#toys <- apply(x,2,tolower(toys))\n#toys\n#data_frame(toysupper,rowcount)\n#print(toysupper)\n# not working only produces a vector - can't unlist ?????\n\n#view dataset to see how many different names used in company column\n#str()\n# can't remember the  command ?????\n\n#substitute correct company names for misspelled names (make this a function?)\n#toys[, 1] <- apply(toys[ ,1], 2, function(x) as.character(gsub(\"fillips\", \"PHILLIPS\", x)))\ntoys\n#sub(\"@.*\\\\.edu$\",\"@datacamp.edu\",emails) #what does .*\\\\ mean?\n#sub(\"Fillips\",\"Phillips\",toysupper) ... etc\n\n#check to be sure all companies are correct - 4 companies\n#length(unique(toys[ ,1]))\n#stopifnot(length(unique(toys[ ,1])) == 4)\n#stopifnot(toys %>% group_by(company) %>% n_groups() == 4)\n\n#separate product code into two columns\n#mutate(toys,code_letter = unlist(strsplit(toys$code, \"[-]\")))\n#code_parts <- (strsplit(toys$code, \"[-]\"))\n#str(code_parts)\n  toys <- toys %>% mutate(code_ltr = unlist(strsplit(toys$code, \"[-]\"))[1])\n  toys <- toys %>% mutate(code_num = unlist(strsplit(toys$code, \"[-]\"))[2])\n  toys\n  \n#toys %>% mutate(code_ltr = code_parts[ ,1] , code_num = code_parts[ ,2])\n\n# create product catagory list\ncatagory_ltr <- c(\"p\",\"v\",\"x\",\"q\")\ncatagory_name <- c(\"Smartphone\",\"TV\",\"Laptop\",\"Tablet\")\ncatagory <- data.frame(catagory_ltr,catagory_name)\ncatagory\n\n\n#add product catagory name column\ntoys <- toys %>% mutate(code_name = catagory_name[2])\ntoys\n#create full_address column for geocoding\n\n#create dummy binary variables for each company_\n\n#create dummy binary variables for each product_ by catagory\n\n#export refined data as refine_original.csv file\n\n\n",
+    "created" : 1483335833036.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3680551406",
+    "id" : "36C84C1D",
+    "lastKnownWriteTime" : 1483420257,
+    "last_content_update" : 1483420257528,
+    "path" : "~/Desktop/DATA ANALYTICS COURSE/Data Wrangling Projects/toy project/DW1 code.R",
+    "project_path" : "DW1 code.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
